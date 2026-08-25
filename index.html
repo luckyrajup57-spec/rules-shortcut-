@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NyayaAI | Constitution & Law Knowledge</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        <div class="logo-symbol">⚖️</div>
+        <div>
+            <strong>NyayaAI</strong>
+            <small>Constitution • Law • Rights</small>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#constitution">Constitution</a>
+        <a href="#laws">Acts & Laws</a>
+        <a href="#workflow">Legal Guide</a>
+        <a href="#helplines">Help</a>
+    </nav>
+
+    <div class="nav-actions">
+
+        <select id="language">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+        </select>
+
+        <button id="themeBtn" class="icon-btn">🌙</button>
+
+        <button id="loginBtn" class="login-btn">
+            Login
+        </button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<!-- HERO -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            🇮🇳 AI-Powered Legal Knowledge Platform
+        </span>
+
+        <h1>
+            Understand the
+            <span>Constitution.</span>
+            Know your rights.
+        </h1>
+
+        <p>
+            Explore the Constitution of India, Articles, Central and State
+            Acts, rules, regulations and legal procedures through a
+            simple knowledge platform.
+        </p>
+
+        <div class="hero-search">
+
+            <input
+                id="globalSearch"
+                type="text"
+                placeholder="Search Article, Act, Section, right or legal topic..."
+            >
+
+            <button onclick="searchDatabase()">
+                🔍 Search
+            </button>
+
+        </div>
+
+        <div class="quick-search">
+            <button onclick="quickSearch('Fundamental Rights')">
+                Fundamental Rights
+            </button>
+
+            <button onclick="quickSearch('Article 21')">
+                Article 21
+            </button>
+
+            <button onclick="quickSearch('BNS')">
+                BNS
+            </button>
+
+            <button onclick="quickSearch('Consumer')">
+                Consumer Law
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DISCLAIMER -->
+
+<section class="disclaimer">
+
+    <strong>⚠️ Information Notice</strong>
+
+    <p>
+        This platform is designed for legal education and general
+        information. AI-generated explanations may contain errors.
+        Always verify the current law and original text from an
+        official source before relying on it.
+    </p>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <span>EXPLORE</span>
+
+        <h2>One platform for legal knowledge</h2>
+
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <div>📜</div>
+            <h3>Constitution</h3>
+            <p>
+                Learn Parts, Articles, Schedules, Fundamental Rights,
+                Duties and Directive Principles.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div>⚖️</div>
+            <h3>Acts & Laws</h3>
+            <p>
+                Explore Central Acts, State laws and important legal
+                subjects.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div>🤖</div>
+            <h3>AI Legal Explorer</h3>
+            <p>
+                Ask questions and receive structured explanations with
+                source references.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div>🔖</div>
+            <h3>Bookmarks</h3>
+            <p>
+                Save important Articles and legal resources for later.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONSTITUTION -->
+
+<section id="constitution" class="section">
+
+    <div class="section-title">
+
+        <span>CONSTITUTION OF INDIA</span>
+
+        <h2>Search Articles</h2>
+
+    </div>
+
+    <div class="database-tools">
+
+        <input
+            id="articleSearch"
+            type="text"
+            placeholder="Search Article 14, equality, freedom..."
+            oninput="filterArticles()"
+        >
+
+        <select id="articleCategory" onchange="filterArticles()">
+
+            <option value="all">All Articles</option>
+            <option value="rights">Fundamental Rights</option>
+            <option value="duties">Fundamental Duties</option>
+            <option value="directive">Directive Principles</option>
+            <option value="government">Government</option>
+
+        </select>
+
+    </div>
+
+    <div id="articleGrid" class="article-grid"></div>
+
+</section>
+
+
+<!-- LAW CATEGORIES -->
+
+<section id="laws" class="section alt">
+
+    <div class="section-title">
+
+        <span>LEGAL SYSTEM</span>
+
+        <h2>Major areas of Indian Law</h2>
+
+    </div>
+
+    <div class="law-grid">
+
+        <button class="law-card" onclick="filterLaw('Constitutional Law')">
+            🇮🇳
+            <strong>Constitutional Law</strong>
+            <small>Constitution & government powers</small>
+        </button>
+
+        <button class="law-card" onclick="filterLaw('Criminal Law')">
+            ⚖️
+            <strong>Criminal Law</strong>
+            <small>Offences & criminal procedure</small>
+        </button>
+
+        <button class="law-card" onclick="filterLaw('Civil Law')">
+            🏛️
+            <strong>Civil Law</strong>
+            <small>Private disputes & remedies</small>
+        </button>
+
+        <button class="law-card" onclick="filterLaw('Contract Law')">
+            📜
+            <strong>Contract Law</strong>
+            <small>Agreements & obligations</small>
+        </button>
+
+        <button class="law-card" onclick="filterLaw('Property Law')">
+            🏠
+            <strong>Property Law</strong>
+            <small>Ownership & transfer</small>
+        </button>
+
+        <button class="law-card" onclick="filterLaw('Family Law')">
+            👨‍👩‍👧
+            <strong>Family Law</strong>
+            <small>Marriage & succession</small>
+        </button>
+
+        <button class="law-card" onclick="filterLaw('Cyber Law')">
+            💻
+            <strong>Cyber Law</strong>
+            <small>Digital & technology law</small>
+        </button>
+
+        <button class="law-card" onclick="filterLaw('Consumer Law')">
+            🛒
+            <strong>Consumer Law</strong>
+            <small>Consumer rights & remedies</small>
+        </button>
+
+        <button class="law-card" onclick="filterLaw('Labour Law')">
+            👷
+            <strong>Labour Law</strong>
+            <small>Employment & workers</small>
+        </button>
+
+        <button class="law-card" onclick="filterLaw('Tax Law')">
+            💰
+            <strong>Tax Law</strong>
+            <small>Income tax & GST</small>
+        </button>
+
+        <button class="law-card" onclick="filterLaw('Environmental Law')">
+            🌳
+            <strong>Environmental Law</strong>
+            <small>Environment & pollution</small>
+        </button>
+
+        <button class="law-card" onclick="filterLaw('Human Rights')">
+            🕊️
+            <strong>Human Rights</strong>
+            <small>Rights & legal protection</small>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- LEGAL WORKFLOW -->
+
+<section id="workflow" class="section">
+
+    <div class="section-title">
+
+        <span>LEGAL EXPLORER</span>
+
+        <h2>Problem → Applicable Law → Procedure</h2>
+
+    </div>
+
+    <div class="workflow">
+
+        <div class="workflow-step">
+            <span>01</span>
+            <h3>Problem</h3>
+            <p>Describe the legal issue in simple language.</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="workflow-step">
+            <span>02</span>
+            <h3>Applicable Law</h3>
+            <p>Identify potentially relevant legislation.</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="workflow-step">
+            <span>03</span>
+            <h3>Article / Section</h3>
+            <p>Find relevant constitutional or statutory provisions.</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="workflow-step">
+            <span>04</span>
+            <h3>Procedure</h3>
+            <p>Show general procedural information.</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="workflow-step">
+            <span>05</span>
+            <h3>Authority</h3>
+            <p>Identify the appropriate government or legal authority.</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="workflow-step">
+            <span>06</span>
+            <h3>Official Source</h3>
+            <p>Provide the primary source for verification.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- AI -->
+
+<section class="ai-section">
+
+    <div class="ai-box">
+
+        <div>
+
+            <span class="badge">
+                🤖 AI LEGAL EXPLORER
+            </span>
+
+            <h2>
+                Ask a legal knowledge question
+            </h2>
+
+            <p>
+                Get an educational explanation organized around law,
+                Article/Section, procedure, authority and sources.
+            </p>
+
+        </div>
+
+        <textarea
+            id="aiQuestion"
+            placeholder="Example: What does Article 21 generally protect?"
+        ></textarea>
+
+        <button onclick="askAI()" class="primary-btn">
+            Ask NyayaAI
+        </button>
+
+        <div id="aiResult" class="ai-result"></div>
+
+    </div>
+
+</section>
+
+
+<!-- SOURCES -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <span>PRIMARY SOURCES</span>
+
+        <h2>Verify information from official websites</h2>
+
+    </div>
+
+    <div class="source-grid">
+
+        <a
+            href="https://www.indiacode.gov.in/"
+            target="_blank"
+            class="source-card"
+        >
+            <strong>🇮🇳 India Code</strong>
+            <span>Central legislation database</span>
+        </a>
+
+        <a
+            href="https://www.legislative.gov.in/"
+            target="_blank"
+            class="source-card"
+        >
+            <strong>📜 Legislative Department</strong>
+            <span>Constitution & legislative resources</span>
+        </a>
+
+        <a
+            href="https://nalsa.gov.in/"
+            target="_blank"
+            class="source-card"
+        >
+            <strong>⚖️ NALSA</strong>
+            <span>Legal aid & legal services</span>
+        </a>
+
+        <a
+            href="https://www.sci.gov.in/"
+            target="_blank"
+            class="source-card"
+        >
+            <strong>🏛️ Supreme Court of India</strong>
+            <span>Judicial information</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- HELPLINES -->
+
+<section id="helplines" class="section alt">
+
+    <div class="section-title">
+
+        <span>HELP & SERVICES</span>
+
+        <h2>Important official contacts</h2>
+
+    </div>
+
+    <div class="helpline-grid">
+
+        <div class="helpline-card">
+
+            <span>⚖️</span>
+
+            <h3>NALSA Legal Aid</h3>
+
+            <p>
+                National Legal Services Authority
+            </p>
+
+            <a href="tel:15100">
+                📞 15100
+            </a>
+
+            <a
+                href="https://nalsa.gov.in/"
+                target="_blank"
+            >
+                Official Website →
+            </a>
+
+        </div>
+
+        <div class="helpline-card">
+
+            <span>🚨</span>
+
+            <h3>Emergency Services</h3>
+
+            <p>
+                Use the official emergency system appropriate to
+                your situation and location.
+            </p>
+
+            <a href="https://112.gov.in/" target="_blank">
+                Official 112 Portal →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LOGIN MODAL -->
+
+<div id="loginModal" class="modal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeLogin()">
+            ×
+        </button>
+
+        <h2>Welcome to NyayaAI</h2>
+
+        <p>Create an account to sync bookmarks and preferences.</p>
+
+        <input id="email" type="email" placeholder="Email">
+
+        <input id="password" type="password" placeholder="Password">
+
+        <button onclick="login()" class="primary-btn">
+            Login
+        </button>
+
+        <button onclick="signup()" class="secondary-btn">
+            Create Account
+        </button>
+
+        <p id="authMessage"></p>
+
+    </div>
+
+</div>
+
+
+<!-- ADMIN -->
+
+<section class="section admin-section">
+
+    <div class="section-title">
+
+        <span>ADMIN</span>
+
+        <h2>Content Management</h2>
+
+    </div>
+
+    <div class="admin-grid">
+
+        <div class="admin-card">
+            <strong>📚 Articles</strong>
+            <span id="articleCount">0</span>
+        </div>
+
+        <div class="admin-card">
+            <strong>📜 Acts</strong>
+            <span>Central + State</span>
+        </div>
+
+        <div class="admin-card">
+            <strong>🔗 Sources</strong>
+            <span>Official</span>
+        </div>
+
+        <div class="admin-card">
+            <strong>👥 Users</strong>
+            <span>Authentication</span>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-logo">
+        ⚖️ NyayaAI
+    </div>
+
+    <p>
+        Constitution • Acts • Rights • Legal Knowledge
+    </p>
+
+    <p class="copyright">
+        Educational information platform. Verify current law
+        from official sources.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
